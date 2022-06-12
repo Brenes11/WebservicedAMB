@@ -12,14 +12,14 @@ Class usuarios extends Conexion{
     }
 
     public function insertarUsuario($username, $password, $rol){
-        $sql = "INSERT INTO usuarios(username, pass, rol) VALUES ('$username', '$password', '$rol')";
+        $sql = "INSERT INTO usuarios(username, pass, rol) VALUES ('$username', sha1('$password'), '$rol')";
         $rs = $this->consultaSQL($sql);
         return $rs;
     }
 
     public function loguearse($username, $password){
         
-        $sql = "SELECT * FROM usuarios WHERE username = '$username' AND pass = '$password'";
+        $sql = "SELECT * FROM usuarios WHERE username = '$username' AND pass = sha1('$password')";
         $rs = mysqli_query($this->link ,$sql);
         if(mysqli_num_rows($rs)==1){
             return $rs;
