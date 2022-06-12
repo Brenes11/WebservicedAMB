@@ -16,5 +16,14 @@ Class usuarios extends Conexion{
         $rs = $this->consultaSQL($sql);
         return $rs;
     }
+
+    public function loguearse($username, $password){
+        
+        $sql = "SELECT * FROM usuarios WHERE username = '$username' AND pass = '$password'";
+        $rs = mysqli_query($this->link ,$sql);
+        if(mysqli_num_rows($rs)==1){
+            return $rs;
+        }
+    }
 }
 ?>

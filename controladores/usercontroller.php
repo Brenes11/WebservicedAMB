@@ -46,5 +46,17 @@
             }
 
         }
+
+        function login($username, $pass){
+            $user = new usuarios();
+
+            
+            if($user->loguearse($username, $pass)){
+
+                echo "Bienvenido usuario";
+            }else{
+                echo "Usuario o contraseña incorrecta";
+            }
+        }
     }
 ?>
