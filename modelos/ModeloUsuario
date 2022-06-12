@@ -1,0 +1,20 @@
+<?php
+include_once("../conexion.php");
+
+Class usuarios extends Conexion{
+    public function getUsers(){
+
+        $sql = "SELECT * FROM usuarios ";
+
+        $rs = $this->consultaSQL($sql);
+
+        return $rs;
+    }
+
+    public function insertarUsuario($username, $password, $rol){
+        $sql = "INSERT INTO usuarios(username, pass, rol) VALUES ('$username', '$password', '$rol')";
+        $rs = $this->consultaSQL($sql);
+        return $rs;
+    }
+}
+?>
