@@ -12,6 +12,6 @@
 
 
     if($_REQUEST){
-        $apiSitio->updateSitio($txtSitioId, $txtTitulo, $txtIntroduccion, $txtDescripcion,$txtImagenIcono,$txtImagenPortadas);
+        $apiSitio->updateSitio($txtSitioId, $txtTitulo, $txtIntroduccion, $txtDescripcion,$txtImagenIcono,$txtImagenPortada);
     }
 ?>

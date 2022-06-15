@@ -54,7 +54,7 @@ class Sitios extends Conexion
 
     public function editarSitio($sitioId,$titulo, $introduccion, $descripcion, $imagenIcono, $imagenPortada){
         $sql = "UPDATE sitio set titulo = '$titulo', introduccion = '$introduccion', descripcion = '$descripcion',
-        imagenPortada = '$imagenPortada', imagenIcono = '$imagenIcono' where sitioId = $sitioId";
+        imagenPortada = '$imagenPortada', imagenIcono = '$imagenIcono' where sitioid = $sitioId";
 
         $rs = $this->consultaSQL($sql);
 
