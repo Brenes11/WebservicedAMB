@@ -40,6 +40,38 @@ class ApiSitios
         } else echo json_encode(array("mensaje" => "No hay nada"));
     } //Fin de getSitios
 
+    function getSitioById($SitioId){
+        $sitio = new Sitios();
+        $sitios['items'] = array();
+        $res = $sitio->ilstarSitiosById($SitioId);
+
+        if (mysqli_num_rows($res) > 0) {
+            #Recorrer resultado por medio de arreglo asociativo
+            while ($fila = mysqli_fetch_assoc($res)) {
+                #Creando arreglo asociativo auxiliar con los nombres
+                #de los campos de la consulta sql usada en modelo.php
+                $item = array(
+                    "id" => $fila["sitioid"],
+                    "icono" => $fila["imagenIcono"],
+                    "titulo" => $fila["titulo"],
+                    "introduccion" => $fila["introduccion"],
+                    "imagenportada" => $fila["imagenPortada"],
+                    "descripcion" => $fila["descripcion"]
+                );
+
+                #Añadir array auxiliar al array principal
+
+                array_push($sitios["items"], $item);
+            } //fin de while
+
+            #Mostrar el arreglo con formato json
+            header('Content-Type: application/json');
+            echo json_encode($sitios,JSON_PRETTY_PRINT);
+            
+        }
+
+    }
+
     function addSitios($titulo, $introduccion, $descripcion,$imagenIcono, $imagenPortada){
         $sitio = new Sitios();
 
