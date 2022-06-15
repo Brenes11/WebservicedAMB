@@ -23,7 +23,7 @@ class Conexion
         #Nombre del usuario con privilegios en la base
         $this->usuario = "root";
         #Clave del usuario en la base de datos
-        $this->password = "12345";
+        $this->password = "";
 
         #Estableciendo la conexión a la base de datos
         #Esta conexion es almacenada en el atributo link
