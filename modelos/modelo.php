@@ -22,6 +22,20 @@ class Sitios extends Conexion
         #retornar la variable con el resultado de la consulta SQL
         return $rs;
     }
+    public function ilstarSitiosById($sitioId){
+        $sql = "SELECT
+        sitioid,
+        imagenIcono,
+        titulo,
+        introduccion,
+        imagenPortada,
+        descripcion
+        from sitio where sitioid = $sitioId";
+               #Invocar el método que ejecutara la consulta SQL
+               $rs = $this->consultaSQL($sql);
+               #retornar la variable con el resultado de la consulta SQL
+               return $rs;
+    }
 
     public function insertarSitio($titulo, $introduccion, $descripcion, $imagenIcono, $imagenPortada){
         $sql = "INSERT INTO sitio (titulo, introduccion, descripcion, imagenIcono, imagenPortada) 
