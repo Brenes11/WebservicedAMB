@@ -49,7 +49,11 @@ class Sitios extends Conexion
         $sql = "DELETE FROM sitio where sitioId = '$sitioId'";
         $rs = $this->consultaSQL($sql);
 
-        return $rs;
+        if(mysqli_num_rows($rs)==1){
+            return $rs;
+        }
+        return null;
+        
     }
 
     public function editarSitio($sitioId,$titulo, $introduccion, $descripcion, $imagenIcono, $imagenPortada){
